@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TouchableHighlight} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableHighlight, Button, Alert} from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 export default function App() { 
@@ -12,20 +12,13 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container} edges={["top", "left", "right"]}>
-        <Text numberOfLines={1} onPress={handlePress}>I am writing to apply for the Doctoral Research Associate position in Generative Multimodal Recommender Systems at TUM Campus Heilbronn. With a Master’s degree in Media Informatics from RWTH Aachen, research experience at Fraunhofer IAIS and IPA, peer-reviewed publications, and several self-initiated projects in recommender systems and large language models, I am eager to contribute to advancing state-of-the-art multimodal, sequential, and generative approaches to recommender systems in close collaboration with Audi.</Text>
-        <StatusBar style="auto" />
-        <TouchableHighlight onPress={() => console.log("Image Clicked")}> 
-          <Image 
-            blurRadius={5}
-            fadeDuration={1000}
-            source={{
-              width: 200,
-              height:300,
-              uri: "https://picsum.photos/200/300"
-            }}
-          /> 
-        </TouchableHighlight>
-        
+        <Button 
+        color="orange"
+        title='Click Me' 
+        onPress={() => Alert.alert("My title", "My Message", [
+          {text: "Yes", onPress: () => console.log("Yes Pressed")},
+          {text: "No", onPress: () => console.log("No Pressed")}
+        ])} />       
       </SafeAreaView>
     </SafeAreaProvider>
   );
