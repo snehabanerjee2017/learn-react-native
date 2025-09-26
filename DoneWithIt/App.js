@@ -1,10 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TouchableHighlight, Button, Alert, Platform} from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableHighlight, Button, Alert, Platform, Dimensions} from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 
 export default function App() { 
   let x = 1;
-  console.log(require("./assets/favicon.png"));
+  console.log(Dimensions.get("screen")) ;
 
   const handlePress = () => {
     console.log("Text Clicked");
@@ -12,12 +12,12 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container} edges={["top", "left", "right"]}>
-        <Button 
-        color="orange"
-        title='Click Me' 
-        onPress={() => 
-          Alert.prompt("My title", "My message", text => console.log(text))
-        } />       
+        <View
+          style={{
+            backgroundColor: "dodgerblue",
+            width: "50%",
+            height: 70,
+        }}></View>   
       </SafeAreaView>
     </SafeAreaProvider>
   );
@@ -32,3 +32,5 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
   },
 });
+
+// Physical Pixels = Density-independent Pixels(DIPs) * Scale Factor
