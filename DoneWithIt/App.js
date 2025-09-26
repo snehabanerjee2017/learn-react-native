@@ -15,10 +15,9 @@ export default function App() {
         <Button 
         color="orange"
         title='Click Me' 
-        onPress={() => Alert.alert("My title", "My Message", [
-          {text: "Yes", onPress: () => console.log("Yes Pressed")},
-          {text: "No", onPress: () => console.log("No Pressed")}
-        ])} />       
+        onPress={() => 
+          Alert.prompt("My title", "My message", text => console.log(text))
+        } />       
       </SafeAreaView>
     </SafeAreaProvider>
   );
